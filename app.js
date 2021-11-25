@@ -4,21 +4,24 @@ const app = express();
 
 app.use(express.json());
 
+mongoose.connect(urldb,{useNewUrlParser:true, useUnifiedTopology:true});
+
 const mongoose = require("mongoose");
 const urldb = "mongodb+srv://carol:123456@conclusaodecurso.vqna6.mongodb.net/ConclusaoDeCurso?retryWrites=true&w=majority"
 
 const tabela = new mongoose.Schema({
     nome:{type:String, required:true},
-    email:{type:String, required:true},
-    cpf:{type:String, required:true},
+    email:{type:String, required:true, unique:true},
+    cpf:{type:String, required:true, unique:true},
     telefone:String,
-    idade:{type:String, required:true},
+    idade:{type:String, min:16, max:120},
     senha:String,
-    datacadastro:{type:Date, default: Date.now}
+    usuario:{type:String, unique:true},
+    datacadastro:{type:Date, default:Date.now}
 
 });
 
-const Cliente = mongoose.model("cliente", tabela);
+const Cliente = mongoose.model("cadastrocliente", tabela);
 
 
 

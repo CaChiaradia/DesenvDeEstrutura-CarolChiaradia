@@ -7,12 +7,15 @@ const config = () => {
                 dbpath:
                 "mongodb+srv://carol:123456@conclusaodecurso.vqna6.mongodb.net/ConclusaoDeCurso?retryWrites=true&w=majority",
             jwt_key: "Navegação",
-            jwt_expires: "1d",
+            jwt_expires: '1d'
             };
         case "prod":
             return{
                 dbpath:
-                "mongodb+srv://carol:123456@conclusaodecurso.vqna6.mongodb.net/ConclusaoDeCurso?retryWrites=true&w=majority"
+                "mongodb+srv://carol:123456@conclusaodecurso.vqna6.mongodb.net/ConclusaoDeCurso?retryWrites=true&w=majority",
+                jwt_key: "Navegação",
+                jwt_expires: '1d'
+
             };
     };
 };
